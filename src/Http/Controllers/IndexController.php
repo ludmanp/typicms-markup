@@ -7,7 +7,10 @@ use App\Http\Controllers\Controller;
 class IndexController extends Controller
 {
     function index($string){
-        return view('markup.'.$string)??'Page not found';
+        if (view()->exists('markup.'.$string)) {
+            return view('markup.' . $string);
+        }
+        abort(404);
     }
 
 }
