@@ -13,7 +13,8 @@ class RouteServiceProvider extends ServiceProvider
     public function map(): void
     {
         Route::namespace('Markup')->prefix('markup')->group(function (Router $router) {
-            $router->get('{page}', [IndexController::class, 'index'])->name('markup::index');
+            $router->get('', [IndexController::class, 'index'])->name('markup::index');
+            $router->get('{page}', [IndexController::class, 'pages'])->name('markup::pages');
         });
 
     }
